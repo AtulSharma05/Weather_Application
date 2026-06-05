@@ -24,7 +24,7 @@
 </head>
 <body class="min-h-screen flex items-center justify-center p-4 antialiased text-slate-200 transition-all duration-700
     {% if weather and not weather.error %}
-        {% if weather.theme == 'sunny' %} bg-gradient-to-br from-amber-400 via-orange-500 to-sky-700
+        {% if weather.theme == 'sunny' %} bg-gradient-to-br from-blue-600 via-orange-500 to-amber-600
         {% elif weather.theme == 'cloudy' %} bg-gradient-to-br from-slate-600 via-slate-700 to-indigo-950
         {% elif weather.theme == 'foggy' %} bg-gradient-to-br from-zinc-500 via-stone-600 to-zinc-800
         {% elif weather.theme == 'rainy' %} bg-gradient-to-br from-cyan-900 via-slate-800 to-blue-950
@@ -34,11 +34,11 @@
         bg-gradient-to-br from-slate-900 to-indigo-950
     {% endif %}">
 <div class="w-full max-w-7xl mx-auto ">
-
-    <div class="flex flex-col lg:flex-row gap-8 items-full ">
+<!-- parent -->
+    <div class="flex flex-col lg:flex-row gap-8 items-stretch ">
         <!-- Daily Forecast -->
-<div class="w-full lg:w-1/4 h-full" >
-    <div class="backdrop-blur-md rounded-3xl p-5 border border-white/10 bg-white/10">
+         <!-- left container --><div class="max-h-[430px] w-full lg:w-[30%] self-stretch">
+    <div class="backdrop-blur-md rounded-3xl p-5 border border-white/10 bg-white/10 h-full overflow-y-auto">
 
         <h3 class="text-lg font-semibold mb-4">
             7 Day Forecast
@@ -69,7 +69,7 @@
     </div>
 </div>
     <!-- Card Container with Dynamic Atmospheric Glow -->
-    <div class="max-h-[99vh] overflow-y-auto-hidden w-full lg:w-2/5 backdrop-blur-md rounded-3xl p-6 shadow-2xl transition-all duration-700 border border-white/10
+    <div class="max-h-[600px] w-full lg:w-[40%] backdrop-blur-md rounded-3xl p-6 shadow-2xl transition-all duration-700 border border-white/10
         {% if weather and not weather.error %}
             {% if weather.theme == 'sunny' %} bg-amber-950/20 shadow-orange-700/10
             {% elif weather.theme == 'cloudy' %} bg-slate-900/40 shadow-slate-500/10
@@ -178,15 +178,15 @@
         
     </div>
     <!-- Hourly Forecast -->
-<div class="w-full lg:w-1/4 h-full">
+<div class="w-full lg:w-[30%] max-h-[600px] self-stretch">
 
-    <div class="backdrop-blur-md rounded-3xl p-5 border border-white/10 bg-white/10">
+    <div class="backdrop-blur-md rounded-3xl p-5 border border-white/10 bg-white/10 h-full flex flex-col">
 
         <h3 class="text-lg font-semibold mb-4">
             Next 24 Hours
         </h3>
 
-        <div class="space-y-2 max-h-[83vh] overflow-y-auto">
+        <div class="space-y-2 flex-1 overflow-y-auto">
 
             {% for hour in hourly %}
 
